@@ -206,6 +206,8 @@ const renderCountry = function (data, className = '') {
 
 //
 
+/*
+
 const getJSON = function (url, errorMsg = 'Something went wrong') {
   return fetch(url).then((response) => {
     if (!response.ok) {
@@ -239,8 +241,62 @@ const getCountryData = function (country) {
     });
 };
 
-btn.addEventListener('click', () => {
-  getCountryData('portugal');
+*/
+
+// btn.addEventListener('click', () => {
+//   getCountryData('portugal');
+// });
+
+// getCountryData('usa');
+
+/*
+
+const whereAMi = function (lat, lng) {
+  const url = `https://geocode.xyz/${lat},${lng}?geoit=json`;
+  fetch(url)
+    .then((response) => {
+      console.log(response);
+      if (!response.ok) {
+        throw new Error(`Error geocoding ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log(data);
+      console.log(`You are in ${data.region}, ${data.country}`);
+      return getCountryData(data.country);
+    })
+    .catch((err) => {
+      console.error(`Oops Something went wrong! ${err}`);
+    });
+};
+
+whereAMi('52.508', '13.381');
+*/
+
+/*
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('lottery draw....');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You Win!');
+    }
+    reject(new Error('You loose :('));
+  }, 2000);
 });
 
-getCountryData('usa');
+lotteryPromise.then((res) => console.log(res)).catch((e) => console.error(e));
+
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(2)
+  .then(() => {
+    console.log('I waited for 2 seconds');
+    return wait(1);
+  })
+  .then(() => console.log('I waited for 1 second'));
+*/
